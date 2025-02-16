@@ -1,0 +1,11 @@
+name: 'superstore'
+config-version: 2
+
+profile: 'superstore'
+
+models:
+  superstore:
+    core_data:  # исправленный блок
+      +custom_schema_name: core
+    dm_data:
+      +custom_schema_name: dm

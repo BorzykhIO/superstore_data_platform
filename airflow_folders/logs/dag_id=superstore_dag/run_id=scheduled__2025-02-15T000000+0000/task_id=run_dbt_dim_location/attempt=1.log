@@ -1,0 +1,58 @@
+[2025-02-16T10:04:49.208+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-16T10:04:49.224+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: superstore_dag.run_dbt_dim_location scheduled__2025-02-15T00:00:00+00:00 [queued]>
+[2025-02-16T10:04:49.232+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: superstore_dag.run_dbt_dim_location scheduled__2025-02-15T00:00:00+00:00 [queued]>
+[2025-02-16T10:04:49.233+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-02-16T10:04:49.246+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_dbt_dim_location> on 2025-02-15 00:00:00+00:00
+[2025-02-16T10:04:49.250+0000] {standard_task_runner.py:72} INFO - Started process 75 to run task
+[2025-02-16T10:04:49.253+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'superstore_dag', 'run_dbt_dim_location', 'scheduled__2025-02-15T00:00:00+00:00', '--job-id', '240', '--raw', '--subdir', 'DAGS_FOLDER/superstore_dag.py', '--cfg-path', '/tmp/tmpooppk17q']
+[2025-02-16T10:04:49.256+0000] {standard_task_runner.py:105} INFO - Job 240: Subtask run_dbt_dim_location
+[2025-02-16T10:04:49.272+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-02-16T10:04:49.310+0000] {task_command.py:467} INFO - Running <TaskInstance: superstore_dag.run_dbt_dim_location scheduled__2025-02-15T00:00:00+00:00 [running]> on host e06c424a4719
+[2025-02-16T10:04:49.312+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-02-16T10:04:49.398+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='superstore_dag' AIRFLOW_CTX_TASK_ID='run_dbt_dim_location' AIRFLOW_CTX_EXECUTION_DATE='2025-02-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-15T00:00:00+00:00'
+[2025-02-16T10:04:49.399+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-16T10:04:49.427+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-02-16T10:04:49.428+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /dbt/superstore/ && dbt run --select dim_location']
+[2025-02-16T10:04:49.437+0000] {subprocess.py:99} INFO - Output:
+[2025-02-16T10:04:51.902+0000] {subprocess.py:106} INFO - [0m10:04:51  Running with dbt=1.9.2
+[2025-02-16T10:04:52.283+0000] {subprocess.py:106} INFO - [0m10:04:52  Registered adapter: postgres=1.9.0
+[2025-02-16T10:04:52.520+0000] {subprocess.py:106} INFO - [0m10:04:52  Unable to do partial parsing because profile has changed
+[2025-02-16T10:04:52.521+0000] {subprocess.py:106} INFO - [0m10:04:52  Unable to do partial parsing because a project config has changed
+[2025-02-16T10:04:54.124+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Did not find matching node for patch with name 'fact_sales' in the 'models' section of file 'models/core_data/schema.yml'
+[2025-02-16T10:04:54.570+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.unique_fact_sales_order_hash_key.955b6af71f' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.572+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_order_hash_key.ef4146245b' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.573+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.unique_fact_sales_order_id.27d0b5b8b9' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.574+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_order_id.f6f073d70b' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.574+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_customer_hash_key.1fc8c11439' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.576+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.relationships_fact_sales_customer_hash_key__customer_hash_key__ref_dim_customer_.17da0cebd2' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.577+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_product_hash_key.a3a002cd4b' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.577+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.relationships_fact_sales_product_hash_key__product_hash_key__ref_dim_product_.c5bbd01abb' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.579+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_location_hash_key.2ae8fd54cc' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.580+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.relationships_fact_sales_location_hash_key__location_hash_key__ref_dim_location_.dc1a855dfb' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.580+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_order_date.d04f309174' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.581+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_ship_date.2574bac0f3' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.582+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_sales.2251c04d7d' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.583+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.dbt_utils_expression_is_true_fact_sales_sales__sales_0.7f4fbe8968' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.583+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_quantity.123217c37f' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.584+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.dbt_utils_expression_is_true_fact_sales_quantity__quantity_0.7112c44c4b' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.584+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_discount.22010f5285' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.585+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.dbt_utils_expression_is_true_fact_sales_discount__discount_0.37582520d5' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.586+0000] {subprocess.py:106} INFO - [0m10:04:54  [[33mWARNING[0m]: Test 'test.superstore.not_null_fact_sales_profit.c7a9f000f9' (models/core_data/schema.yml) depends on a node named 'fact_sales' in package '' which was not found
+[2025-02-16T10:04:54.883+0000] {subprocess.py:106} INFO - [0m10:04:54  Found 6 models, 15 data tests, 1 source, 433 macros
+[2025-02-16T10:04:54.888+0000] {subprocess.py:106} INFO - [0m10:04:54
+[2025-02-16T10:04:54.889+0000] {subprocess.py:106} INFO - [0m10:04:54  Concurrency: 1 threads (target='prod')
+[2025-02-16T10:04:54.890+0000] {subprocess.py:106} INFO - [0m10:04:54
+[2025-02-16T10:04:55.069+0000] {subprocess.py:106} INFO - [0m10:04:55  1 of 1 START sql incremental model _core.dim_location .......................... [RUN]
+[2025-02-16T10:04:55.260+0000] {subprocess.py:106} INFO - [0m10:04:55  1 of 1 OK created sql incremental model _core.dim_location ..................... [[32mSELECT 608[0m in 0.19s]
+[2025-02-16T10:04:55.276+0000] {subprocess.py:106} INFO - [0m10:04:55
+[2025-02-16T10:04:55.277+0000] {subprocess.py:106} INFO - [0m10:04:55  Finished running 1 incremental model in 0 hours 0 minutes and 0.39 seconds (0.39s).
+[2025-02-16T10:04:55.356+0000] {subprocess.py:106} INFO - [0m10:04:55
+[2025-02-16T10:04:55.357+0000] {subprocess.py:106} INFO - [0m10:04:55  [32mCompleted successfully[0m
+[2025-02-16T10:04:55.357+0000] {subprocess.py:106} INFO - [0m10:04:55
+[2025-02-16T10:04:55.358+0000] {subprocess.py:106} INFO - [0m10:04:55  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-16T10:04:56.736+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-02-16T10:04:56.764+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-16T10:04:56.765+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=superstore_dag, task_id=run_dbt_dim_location, run_id=scheduled__2025-02-15T00:00:00+00:00, execution_date=20250215T000000, start_date=20250216T100449, end_date=20250216T100456
+[2025-02-16T10:04:56.805+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-16T10:04:56.831+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-16T10:04:56.833+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

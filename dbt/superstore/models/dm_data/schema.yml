@@ -1,0 +1,59 @@
+models:
+  - name: superstore_sales_t
+    description: "Таблица с данными о продажах в супермаркете."
+    schema: dm
+    columns:
+      - name: order_id
+        description: "Идентификатор заказа."
+        tests:
+          - not_null
+      - name: order_date
+        description: "Дата заказа."
+        tests:
+          - not_null
+      - name: order_year
+        description: "Год заказа."
+      - name: order_month
+        description: "Месяц заказа."
+      - name: order_day
+        description: "День заказа."
+      - name: order_weekday
+        description: "День недели заказа."
+      - name: product_id
+        description: "Идентификатор продукта."
+        tests:
+          - not_null
+      - name: product_name
+        description: "Название продукта."
+      - name: category
+        description: "Категория продукта."
+      - name: sub_category
+        description: "Подкатегория продукта."
+      - name: ship_date
+        description: "Дата отправки заказа."
+      - name: customer_id
+        description: "Идентификатор клиента."
+        tests:
+          - not_null
+      - name: customer_name
+        description: "Имя клиента."
+      - name: customer_segment
+        description: "Сегмент клиента."
+      - name: order_country
+        description: "Страна заказа."
+      - name: order_state
+        description: "Штат или регион заказа."
+      - name: order_city
+        description: "Город заказа."
+      - name: order_postal_code
+        description: "Почтовый индекс заказа."
+      - name: sales
+        description: "Сумма продаж."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Количество проданных единиц."
+      - name: discount
+        description: "Скидка на товар."
+      - name: profit
+        description: "Прибыль от продажи."

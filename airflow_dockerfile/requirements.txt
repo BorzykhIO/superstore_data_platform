@@ -1,0 +1,9 @@
+pandas
+pyarrow
+boto3
+requests
+loguru==0.7.0
+orjson==3.9.7
+psycopg2-binary
+dbt-postgres
+

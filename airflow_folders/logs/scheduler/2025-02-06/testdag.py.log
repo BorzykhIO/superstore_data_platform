@@ -1,0 +1,15 @@
+[2025-02-06T01:29:23.359+0000] {processor.py:186} INFO - Started process (PID=567) to work on /opt/airflow/dags/testdag.py
+[2025-02-06T01:29:23.364+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testdag.py for tasks to queue
+[2025-02-06T01:29:23.372+0000] {logging_mixin.py:190} INFO - [2025-02-06T01:29:23.371+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/testdag.py
+[2025-02-06T01:29:23.472+0000] {processor.py:925} INFO - DAG(s) 'dummy_operator_example' retrieved from /opt/airflow/dags/testdag.py
+[2025-02-06T01:29:23.550+0000] {logging_mixin.py:190} INFO - [2025-02-06T01:29:23.549+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-02-06T01:29:23.589+0000] {logging_mixin.py:190} INFO - [2025-02-06T01:29:23.588+0000] {dag.py:4180} INFO - Setting next_dagrun for dummy_operator_example to None, run_after=None
+[2025-02-06T01:29:23.642+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testdag.py took 0.295 seconds
+[2025-02-06T06:16:37.606+0000] {processor.py:186} INFO - Started process (PID=589) to work on /opt/airflow/dags/testdag.py
+[2025-02-06T06:16:37.664+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testdag.py for tasks to queue
+[2025-02-06T06:16:37.743+0000] {logging_mixin.py:190} INFO - [2025-02-06T06:16:37.743+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/testdag.py
+[2025-02-06T06:16:38.503+0000] {processor.py:925} INFO - DAG(s) 'dummy_operator_example' retrieved from /opt/airflow/dags/testdag.py
+[2025-02-06T06:16:39.573+0000] {logging_mixin.py:190} INFO - [2025-02-06T06:16:39.573+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-02-06T06:16:39.618+0000] {logging_mixin.py:190} INFO - [2025-02-06T06:16:39.618+0000] {dag.py:4180} INFO - Setting next_dagrun for dummy_operator_example to None, run_after=None
+[2025-02-06T06:16:40.177+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testdag.py took 2.817 seconds
+[2025-02-06T06:17:14.432+0000] {logging_mixin.py:190} INFO - [2025-02-06T06:17:14.427+0000] {process_utils.py:266} INFO - Waiting up to 5 seconds for processes to exit...

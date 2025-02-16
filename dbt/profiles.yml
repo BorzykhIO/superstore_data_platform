@@ -1,0 +1,12 @@
+superstore:
+  outputs:
+    prod:
+      dbname: dwh_db
+      host: postgres_dwh
+      pass: dwh_pass
+      port: 5432
+      schema: dbt_dev
+      threads: 1
+      type: postgres
+      user: dwh_user
+  target: prod

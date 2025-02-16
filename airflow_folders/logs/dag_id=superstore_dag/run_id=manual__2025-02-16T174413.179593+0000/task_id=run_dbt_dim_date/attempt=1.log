@@ -1,0 +1,35 @@
+[2025-02-16T17:44:46.629+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-16T17:44:46.647+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: superstore_dag.run_dbt_dim_date manual__2025-02-16T17:44:13.179593+00:00 [queued]>
+[2025-02-16T17:44:46.658+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: superstore_dag.run_dbt_dim_date manual__2025-02-16T17:44:13.179593+00:00 [queued]>
+[2025-02-16T17:44:46.660+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-02-16T17:44:46.687+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_dbt_dim_date> on 2025-02-16 17:44:13.179593+00:00
+[2025-02-16T17:44:46.699+0000] {standard_task_runner.py:72} INFO - Started process 1568 to run task
+[2025-02-16T17:44:46.702+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'superstore_dag', 'run_dbt_dim_date', 'manual__2025-02-16T17:44:13.179593+00:00', '--job-id', '248', '--raw', '--subdir', 'DAGS_FOLDER/superstore_dag.py', '--cfg-path', '/tmp/tmpl3r7sgq7']
+[2025-02-16T17:44:46.705+0000] {standard_task_runner.py:105} INFO - Job 248: Subtask run_dbt_dim_date
+[2025-02-16T17:44:46.724+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-02-16T17:44:46.779+0000] {task_command.py:467} INFO - Running <TaskInstance: superstore_dag.run_dbt_dim_date manual__2025-02-16T17:44:13.179593+00:00 [running]> on host e06c424a4719
+[2025-02-16T17:44:46.880+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='superstore_dag' AIRFLOW_CTX_TASK_ID='run_dbt_dim_date' AIRFLOW_CTX_EXECUTION_DATE='2025-02-16T17:44:13.179593+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-16T17:44:13.179593+00:00'
+[2025-02-16T17:44:46.882+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-16T17:44:46.911+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-02-16T17:44:46.912+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /dbt/superstore/ && dbt run --select dim_date']
+[2025-02-16T17:44:46.926+0000] {subprocess.py:99} INFO - Output:
+[2025-02-16T17:44:49.100+0000] {subprocess.py:106} INFO - [0m17:44:49  Running with dbt=1.9.2
+[2025-02-16T17:44:49.427+0000] {subprocess.py:106} INFO - [0m17:44:49  Registered adapter: postgres=1.9.0
+[2025-02-16T17:44:53.606+0000] {subprocess.py:106} INFO - [0m17:44:53  Found 7 models, 34 data tests, 1 source, 632 macros
+[2025-02-16T17:44:53.611+0000] {subprocess.py:106} INFO - [0m17:44:53
+[2025-02-16T17:44:53.612+0000] {subprocess.py:106} INFO - [0m17:44:53  Concurrency: 1 threads (target='prod')
+[2025-02-16T17:44:53.613+0000] {subprocess.py:106} INFO - [0m17:44:53
+[2025-02-16T17:44:53.737+0000] {subprocess.py:106} INFO - [0m17:44:53  1 of 1 START sql incremental model core.dim_date ............................... [RUN]
+[2025-02-16T17:44:53.971+0000] {subprocess.py:106} INFO - [0m17:44:53  1 of 1 OK created sql incremental model core.dim_date .......................... [[32mINSERT 0 0[0m in 0.23s]
+[2025-02-16T17:44:53.989+0000] {subprocess.py:106} INFO - [0m17:44:53
+[2025-02-16T17:44:53.990+0000] {subprocess.py:106} INFO - [0m17:44:53  Finished running 1 incremental model in 0 hours 0 minutes and 0.38 seconds (0.38s).
+[2025-02-16T17:44:54.077+0000] {subprocess.py:106} INFO - [0m17:44:54
+[2025-02-16T17:44:54.077+0000] {subprocess.py:106} INFO - [0m17:44:54  [32mCompleted successfully[0m
+[2025-02-16T17:44:54.078+0000] {subprocess.py:106} INFO - [0m17:44:54
+[2025-02-16T17:44:54.079+0000] {subprocess.py:106} INFO - [0m17:44:54  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-16T17:44:55.031+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-02-16T17:44:55.060+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-16T17:44:55.061+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=superstore_dag, task_id=run_dbt_dim_date, run_id=manual__2025-02-16T17:44:13.179593+00:00, execution_date=20250216T174413, start_date=20250216T174446, end_date=20250216T174455
+[2025-02-16T17:44:55.113+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-16T17:44:55.143+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-16T17:44:55.146+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

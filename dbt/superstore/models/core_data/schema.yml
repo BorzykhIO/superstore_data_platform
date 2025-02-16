@@ -1,0 +1,144 @@
+version: 2
+
+sources:
+  - name: superstore_data
+    schema: stg
+    tables:
+      - name: superstore_data_raw
+
+models:
+  - name: dim_customer
+    description: "Таблица измерений клиентов"
+    columns:
+      - name: customer_hash_key
+      - name: customer_id
+        description: "Уникальный идентификатор клиента"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Имя клиента"
+      - name: segment
+        description: "Сегмент клиента (B2B, B2C и т.д.)"
+
+  - name: dim_product
+    description: "Таблица измерений продуктов"
+    columns:
+      - name: product_hash_key
+        description: "Хеш-ключ продукта"
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "ID продукта"
+      - name: product_name
+        description: "Название продукта"
+      - name: category
+        description: "Категория продукта"
+      - name: sub_category
+        description: "Подкатегория продукта"
+
+  - name: dim_location
+    description: "Таблица измерений локаций"
+    columns:
+      - name: location_hash_key
+        description: "Хеш-ключ локации"
+        tests:
+          - unique
+          - not_null
+      - name: country
+        description: "Страна"
+      - name: state
+        description: "Штат"
+      - name: city
+        description: "Город"
+      - name: postal_code
+        description: "Почтовый индекс"
+
+  - name: dim_date
+    description: "Таблица измерений дат"
+    columns:
+      - name: order_date_str
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        tests:
+          - unique
+          - not_null
+        description: "Полная дата"
+      - name: day_number
+        description: "День"
+      - name: month_number
+        description: "Месяц"
+      - name: year_number
+        description: "Год"
+      - name: weekday
+        description: "День недели"
+
+  - name: fact_orders
+    description: "Фактическая таблица, содержащая все транзакции продаж, загружаемые инкрементально."
+    config:
+      materialized: incremental
+      unique_key: order_id
+    columns:
+      - name: order_hash_key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Уникальный идентификатор заказа."
+        tests:
+          - unique
+          - not_null
+      - name: customer_hash_key
+        description: "Внешний ключ, ссылающийся на dim_customer."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_hash_key
+      - name: product_hash_key
+        description: "Внешний ключ, ссылающийся на dim_product."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_hash_key
+      - name: location_hash_key
+        description: "Внешний ключ, ссылающийся на dim_location."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_location')
+              field: location_hash_key
+      - name: order_date
+        description: "Дата оформления заказа."
+        tests:
+          - not_null
+      - name: ship_date
+        description: "Дата отправки заказа."
+        tests:
+          - not_null
+      - name: sales
+        description: "Общая сумма продаж по заказу."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "sales >= 0"
+      - name: quantity
+        description: "Количество проданных единиц."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "quantity > 0"
+      - name: discount
+        description: "Скидка на продажу."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "discount >= 0"
+      - name: profit
+        description: "Прибыль от транзакции."
+        tests:
+          - not_null
