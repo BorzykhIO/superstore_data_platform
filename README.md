@@ -4,6 +4,9 @@
 ## Overview
 This project is a prototype of a data platform designed to process and analyze sales data from a supermarket chain. The platform integrates real-time data streaming, batch processing, and data warehousing, leveraging modern data engineering tools.
 
+![Альтернативный текст](img\Superstore_Data_Platform.png)
+
+
 ## Architecture Components
 
 ### 1. Kafka Producer (Data Generator)
