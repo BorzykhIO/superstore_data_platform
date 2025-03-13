@@ -66,7 +66,5 @@ This project is a prototype of a data platform designed to process and analyze s
 - Add a BI tool such as Apache Superset.
 - Introduce batch processing alongside streaming.
 
----
 
-This README provides a high-level structure; you can refine it based on specific configurations and customizations in your project.
 
